@@ -5,9 +5,14 @@ import customerRoutes from "./routes/customer.routes.js";
 import orderRoutes from "./routes/order.routes.js";
 
 const app = express();
+app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Customer Order API is running");
+});
+
 
 app.use(cors());
-app.use(express.json());
+
 
 app.use("/customers", customerRoutes);
 app.use("/orders", orderRoutes);
